@@ -10,38 +10,43 @@
       </ul>
     </div>
   <% end %>
+ 
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :advertiser_name %>
+      <%= form.text_field :advertiser_name, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :advertiser_name %>
-    <%= form.text_field :advertiser_name %>
+    <div class="form-group col-md-6">
+      <%= form.label :url %>
+      <%= form.text_field :url, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url %>
-  </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: 'form-control' %>
   </div>
-
-  <div class="field">
+ 
+  <div class="form-group">
     <%= form.label :starts_at %>
-    <%= form.date_select :starts_at %>
+    <div class="form-row">
+      <%= form.date_select :starts_at, {}, class: 'form-control col-md-2' %>
+    </di>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :ends_at %>
-    <%= form.date_select :ends_at %>
+    <div class="form-row">
+      <%= form.date_select :ends_at, {}, class: 'form-control col-md-2' %>
+    </div>
   </div>
 
-  <div class="field">
+  <div class="form-group form-check">
     <%= form.label :premium %>
     <%= form.check_box :premium %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  
+  <%= form.submit class: 'btn btn-primary' %>
 <% end %>
+
