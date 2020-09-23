@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'home#index'
+
   resources :offers, path: 'admin/offers' do
     get :state, to: 'offers#change_state'
   end
