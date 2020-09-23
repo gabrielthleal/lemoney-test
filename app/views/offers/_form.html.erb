@@ -10,24 +10,24 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <%= form.label :advertiser_name %>
-      <%= form.text_field :advertiser_name, class: 'form-control' %>
+      <%= form.text_field :advertiser_name, class: 'form-control', required: true %>
     </div>
 
     <div class="form-group col-md-6">
       <%= form.label :url %>
-      <%= form.text_field :url, class: 'form-control' %>
+      <%= form.text_field :url, class: 'form-control', required: true %>
     </div>
   </div>
 
   <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, class: 'form-control' %>
+    <%= form.text_area :description, class: 'form-control', required: true %>
   </div>
  
   <div class="form-row">
     <div class="form-group col-md-3">
       <%= form.label :starts_at %>
-      <%= form.date_field :starts_at, class: 'form-control' %>
+      <%= form.date_field :starts_at, class: 'form-control', required: true %>
     </div>
 
     <div class="form-group col-md-3">
