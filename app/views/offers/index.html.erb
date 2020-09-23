@@ -1,5 +1,7 @@
 <div class="container">
-  <p id="notice"><%= notice %></p>
+  <% if notice.present? %>
+    <p class="alert alert-success"><%= notice %></p> 
+  <% end %>
 
   <h1>Offers</h1>
 
@@ -20,18 +22,19 @@
           <th scope="row" ><%= offer.id %></th>
           <td><%= offer.advertiser_name %></td>
           <td><%= offer.url %></td>
-          <td>Disabled</td>
+          <td><%= offer.state ? 'Enabled' : 'Disabled' %></td>
           <td>
             <%= link_to 'Edit', edit_offer_path(offer), class: 'badge badge-info' %>
-            <%= link_to 'Enable', edit_offer_path(offer), class: 'badge badge-success' %>
+            <%if offer.state %>
+              <%= link_to 'Disable', offer_state_path(offer), class: 'badge badge-warning' %>
+            <% else %>
+              <%= link_to 'Enable', offer_state_path(offer), class: 'badge badge-success' %>
+            <% end %>
             <%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'badge badge-danger' %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-
-  <br>
-
   <%= link_to 'New Offer', new_offer_path, class: 'btn btn-primary' %>
 </div>

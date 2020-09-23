@@ -1,9 +1,9 @@
 class OffersController < ApplicationController
-  before_action :offer, only: %i[update edit destroy]
+  before_action :set_offer, only: %i[update edit destroy]
 
   # Shows all offers
   def index
-    @offers = Offer.all
+    @offers = Offer.all.order(id: :asc)
   end
 
   # GET /offers/new
@@ -17,6 +17,7 @@ class OffersController < ApplicationController
   # POST /offers.json
   def create
     @offer = Offer.new(offer_params)
+    @offer.set_state
 
     respond_to do |format|
       if @offer.save
@@ -30,6 +31,8 @@ class OffersController < ApplicationController
   # PATCH/PUT /offers/1
   # PATCH/PUT /offers/1.json
   def update
+    @offer.set_state
+
     respond_to do |format|
       if @offer.update(offer_params)
         format.html { redirect_to offers_path, notice: 'Offer was successfully updated.' }
@@ -48,10 +51,21 @@ class OffersController < ApplicationController
     end
   end
 
+  def change_state
+    offer = Offer.find(params[:offer_id])
+
+    offer.state = !offer.state
+    offer.save
+
+    respond_to do |format|
+      format.html { redirect_to offers_url }
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def offer
+  def set_offer
     @offer = Offer.find(params[:id])
   end
 
