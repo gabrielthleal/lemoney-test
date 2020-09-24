@@ -22,7 +22,7 @@ class OffersController < ApplicationController
   # POST admin/offers
   def create
     @offer = Offer.new(offer_params)
-    @offer.set_state
+    # @offer.set_state
 
     respond_to do |format|
       if @offer.save
@@ -36,7 +36,7 @@ class OffersController < ApplicationController
   # PATCH/PUT admin/offers/:id
   def update
     @offer.set_state
-    
+
     respond_to do |format|
       if @offer.update(offer_params)
         format.html { redirect_to offers_path, notice: 'Offer was successfully updated.' }
