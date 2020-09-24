@@ -7,7 +7,7 @@
 * **Ruby**: 2.7.1
 * **Rails**: 6.0.3.3
 * **PostgreSQL**: 10.14
-* **Bootstrap**: 4 (with webpack)
+* **Bootstrap**: 4.5.2 (with webpack)
 
 
 ## Project setup:
