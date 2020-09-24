@@ -1,24 +1,24 @@
-# README
+# Lemoney cachback
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+"You need to build a small web application that displays offers to users."
 
-Things you may want to cover:
 
-* Ruby version
+## Versions:
+* **Ruby**: 2.7.1
+* **Rails**: 6.0.3.3
+* **PostgreSQL**: 10.14
+* **Bootstrap**: 4.5.2 (with webpack)
 
-* System dependencies
 
-* Configuration
+## Project setup:
 
-* Database creation
+1. Install the dependencies above
+2. Clone this project: `$ git clone git@github.com:gabrielthleal/lemoney-test.git`
+3. Go into the project folder: `$ cd lemoney-test`
+4. Setup database: `$ bin/rails db:create && bin/rails db:migrate`
 
-* Database initialization
+## Production
 
-* How to run the test suite
+You can check this application out on heroku: https://gabrielthleal-lemoney-test.herokuapp.com/
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
