@@ -1,21 +1,26 @@
+# frozen_string_literal: true
+
+#
+# app/controllers/offers_controller.rb
+#
 class OffersController < ApplicationController
   before_action :set_offer, only: %i[update edit destroy]
   before_action :set_state, only: %i[create update]
 
-  # Shows all offers
+  # GET /admin/offers
   def index
     @offers = Offer.all.order(id: :asc)
   end
 
-  # GET /offers/new
+  # GET /admin/offers/new
   def new
     @offer = Offer.new
   end
 
+  # GET /admin/offers/:id/edit
   def edit; end
 
-  # POST /offers
-  # POST /offers.json
+  # POST admin/offers
   def create
     @offer = Offer.new(offer_params)
     respond_to do |format|
@@ -27,8 +32,7 @@ class OffersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /offers/1
-  # PATCH/PUT /offers/1.json
+  # PATCH/PUT admin/offers/:id
   def update
     respond_to do |format|
       if @offer.update(offer_params)
@@ -39,8 +43,7 @@ class OffersController < ApplicationController
     end
   end
 
-  # DELETE /offers/1
-  # DELETE /offers/1.json
+  # DELETE admin/offers/:id
   def destroy
     @offer.destroy
     respond_to do |format|
@@ -48,6 +51,7 @@ class OffersController < ApplicationController
     end
   end
 
+  # GET admin/state/:offer_id
   def change_state
     offer = Offer.find(params[:offer_id])
 
@@ -61,12 +65,10 @@ class OffersController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_offer
     @offer = Offer.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def offer_params
     params.require(:offer).permit(:advertiser_name, :url, :description, :starts_at, :ends_at, :premium)
   end

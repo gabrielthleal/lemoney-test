@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+#
+# app/models/offer.rb
+#
 class Offer < ApplicationRecord
   validates_uniqueness_of :advertiser_name
   validates_length_of :description, maximum: 500
