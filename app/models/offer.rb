@@ -6,8 +6,9 @@
 class Offer < ApplicationRecord
   validates_uniqueness_of :advertiser_name
   validates_length_of :description, maximum: 500
+  validates :advertiser_name, :description, :url, :starts_at, presence: true
 
-  validate :check_dates, :check_url
+  before_save :check_dates, :check_url
 
   def set_state
     return self.state = true if ends_at.blank?
