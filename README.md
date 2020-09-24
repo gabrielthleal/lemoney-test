@@ -21,4 +21,5 @@
 
 You can check this application out on heroku: https://gabrielthleal-lemoney-test.herokuapp.com/
 
-
+## Tests
+There are some tests, to run them just type: `$ bundle exec rspec`
