@@ -1,4 +1,4 @@
-# Lemoney cachback
+# Lemoney cashback
 
 "You need to build a small web application that displays offers to users."
 
