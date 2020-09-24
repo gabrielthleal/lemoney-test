@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <%offers.each do |offer| %>
       <% attr_color = offer.premium ? 'success' : 'secondary' %>
 
-      <div class="col-sm-3">
+      <div class="card-container col-sm-3">
         <div class="card border-<%= attr_color %>" style="max-width: 18rem;">
           <div class="card-header"><%= offer.advertiser_name %></div>
             <div class="card-body text-<%= attr_color %>">
-              <a href="<%= offer.url %>" class="btn btn-outline-<%= attr_color %>">Shop Now</a>
+              <a href="<%= "/advertisers/offer/#{offer.id}" %>" class="btn btn-outline-<%= attr_color %>">Shop Now</a>
             </div>
         </div>
       </div>  

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="card text-center">
+    <div class="card-header">
+      Earn your cashback
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= @offer.advertiser_name %></h5>
+      <p class="card-text"><%= @offer.description %></p>
+      <a href="#" class="btn btn-primary">Place Order</a>
+    </div>
+    <div class="card-footer text-muted">
+      Expires: <%= @offer.ends_at.present? ? @offer.ends_at : 'Never' %>
+    </div>
+  </div>
+</div>
