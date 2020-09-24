@@ -12,11 +12,9 @@ class Offer < ApplicationRecord
   validate :check_url, if: -> { url.present? }
 
   def set_state
-    return self.state = true if ends_at.blank?
+    return self.state = false if ends_at.present? && ends_at < Time.current
 
-    return self.state = true if Time.current >= starts_at && Time.current <= ends_at
-
-    self.state = false
+    self.state = true
   end
 
   private

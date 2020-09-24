@@ -22,7 +22,7 @@ class OffersController < ApplicationController
   # POST admin/offers
   def create
     @offer = Offer.new(offer_params)
-    # @offer.set_state
+    @offer.set_state
 
     respond_to do |format|
       if @offer.save
