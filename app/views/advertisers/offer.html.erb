@@ -6,10 +6,18 @@
     <div class="card-body">
       <h5 class="card-title"><%= @offer.advertiser_name %></h5>
       <p class="card-text"><%= @offer.description %></p>
-      <a href="#" class="btn btn-primary">Place Order</a>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCenter">
+        Place Order
+      </button>
     </div>
     <div class="card-footer text-muted">
       Expires: <%= @offer.ends_at.present? ? @offer.ends_at : 'Never' %>
     </div>
   </div>
+
+  <%= render 'shared/modal', modal: { 
+                                      title: @offer.advertiser_name,
+                                      body: 'Congrats! You just earned the cashback.',
+                                      link_button_text: 'Get more offers'  
+                                    } %>
 </div>

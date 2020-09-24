@@ -1,5 +1,6 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: %i[update edit destroy]
+  before_action :set_state, only: %i[create update]
 
   # Shows all offers
   def index
@@ -17,8 +18,6 @@ class OffersController < ApplicationController
   # POST /offers.json
   def create
     @offer = Offer.new(offer_params)
-    @offer.set_state
-
     respond_to do |format|
       if @offer.save
         format.html { redirect_to offers_path, notice: 'Offer was successfully created.' }
@@ -31,8 +30,6 @@ class OffersController < ApplicationController
   # PATCH/PUT /offers/1
   # PATCH/PUT /offers/1.json
   def update
-    @offer.set_state
-
     respond_to do |format|
       if @offer.update(offer_params)
         format.html { redirect_to offers_path, notice: 'Offer was successfully updated.' }
@@ -72,5 +69,9 @@ class OffersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def offer_params
     params.require(:offer).permit(:advertiser_name, :url, :description, :starts_at, :ends_at, :premium)
+  end
+
+  def set_state
+    @offer.set_state
   end
 end
