@@ -17,4 +17,8 @@
 3. Go into the project folder: `$ cd lemoney-test`
 4. Setup database: `$ bin/rails db:create && bin/rails db:migrate`
 
+## Produciton
+
+You can check this application out on: https://gabrielthleal-lemoney-test.herokuapp.com/
+
 
